@@ -13,8 +13,28 @@ export class TaskFormComponent {
   @Output() addTask = new EventEmitter<Task>();
   tasks: Task[] = [];
   newTask: Task = {} as Task;
+  lastId: number = 0; 
+
+  ngOnInit() {
+    this.loadTasksFromLocal();
+    this.updateLastId();
+  }
+
+  private loadTasksFromLocal() {
+    const storedTasks = localStorage.getItem('tasks');
+    if (storedTasks) {
+      this.tasks = JSON.parse(storedTasks);
+    }
+  }
+
+  private updateLastId() {
+    if (this.tasks.length > 0) {
+      this.lastId = Math.max(...this.tasks.map(task => task.id));
+    }
+  }
 
   submitTask() {
+    this.newTask.id = ++this.lastId;
     this.addTask.emit(this.newTask); 
     this.tasks.push(this.newTask);   
     this.saveTaskToLocal(this.newTask);

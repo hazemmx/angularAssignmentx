@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit,ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Task } from '../../models/task.model';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -18,10 +18,23 @@ export class TaskListComponent implements OnInit {
   @Output() addTask = new EventEmitter<Task>();
   isEditDialogOpen: boolean = false;
   editedTask: Task | null = null;
-  constructor(private taskService: TaskService) { } 
+  
+  constructor(private taskService: TaskService, private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.loadTasksFromLocal();
+  }
+
+  private loadTasksFromLocal() {
+    const storedTasks = localStorage.getItem('tasks');
+    if (storedTasks) {
+      this.tasks = JSON.parse(storedTasks);
+    }
+  }
+
+  private saveTasksToLocal() {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    this.changeDetector.detectChanges();
   }
 
   addTaskHandler(newTask: Task) {
@@ -35,13 +48,15 @@ export class TaskListComponent implements OnInit {
   }
 
   openEditDialog(task: Task) {
+    // this.editedTask = JSON.parse(JSON.stringify(task));
+    // this.isEditDialogOpen = true;
     this.editedTask = { ...task };
     this.isEditDialogOpen = true;
   }
 
   editTask() {
     if (this.editedTask !== null) {
-      const index = this.tasks.findIndex(task => task.id === this.editedTask?.id); 
+      const index = this.tasks.findIndex(task => task.id === this.editedTask?.id);
       if (index !== -1) {
         this.taskService.editTask(this.tasks, this.editedTask, index);
         this.closeEditDialog();
@@ -49,6 +64,7 @@ export class TaskListComponent implements OnInit {
       }
     }
   }
+
 
   deleteTask(index: number) {
     this.taskService.deleteTask(this.tasks, index);
@@ -65,14 +81,4 @@ export class TaskListComponent implements OnInit {
     this.editedTask = null;
   }
 
-  private loadTasksFromLocal() {
-    const storedTasks = localStorage.getItem('tasks');
-    if (storedTasks) {
-      this.tasks = JSON.parse(storedTasks);
-    }
-  }
-
-  private saveTasksToLocal() {
-    localStorage.setItem('tasks', JSON.stringify(this.tasks));
-  }
 }
