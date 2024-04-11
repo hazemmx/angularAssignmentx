@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './task-form.component.html',
-  styleUrl: './task-form.component.css'
+  styleUrls: ['./task-form.component.css']
 })
 export class TaskFormComponent {
   @Output() addTask = new EventEmitter<Task>();
@@ -34,6 +34,11 @@ export class TaskFormComponent {
   }
 
   submitTask() {
+    if (!this.newTask.name) {
+      alert('Task name cannot be empty!');
+      return;
+    }
+
     this.newTask.id = ++this.lastId;
     this.addTask.emit(this.newTask); 
     this.tasks.push(this.newTask);   
