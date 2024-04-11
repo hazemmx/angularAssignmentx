@@ -7,6 +7,7 @@ import { TaskFormComponent } from './task-form/task-form.component';
 import { CommonModule } from '@angular/common';
 import { TabComponent } from './tab/tab.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

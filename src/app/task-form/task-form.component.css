@@ -1,43 +1,60 @@
 .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
+    margin-bottom: 20px;
+    /* Increased margin-bottom for more distance between form groups */
+}
+
+.form-group label {
     display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-control {
-    display: block;
+    margin-bottom: 10px;
+    /* Increased margin-bottom for more distance between label and input */
+    color: #aaa;
+    /* Lighter label color */
+}
+
+.form-control {
+    display: inline;
     width: 100%;
-    padding: 8px 12px;
+    padding: 12px;
+    /* Increased padding for taller input fields */
     font-size: 14px;
     line-height: 1.5;
-    border: 1px solid #ccc;
-    border-radius: .25rem;
+    border: none;
+    border-bottom: 2px solid #555;
+    /* Darker bottom border */
+    border-radius: 0;
+    /* Removed border-radius */
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  }
-  
-  .form-control:focus {
-    border-color: #8bdbaf;
+    background-color: #fff;
+    /* Input field background color */
+    color: #555;
+    /* Text color */
+}
+
+.form-control:focus {
+    border-color: #fff;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  }
-  
-  .btn-primary {
+}
+
+.btn-primary {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    padding: .5rem 1rem;
+    /* Text color */
+    background-color: #555;
+    /* Button color */
+    border-color: #555;
+    padding: 12px 22px;
+    /* Increased padding for taller buttons */
     font-size: 14px;
     line-height: 1.5;
-    border-radius: .25rem;
+    border-radius: 8px;
+    /* More circular button */
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  }
-  
-  .btn-primary:hover {
+}
+
+.btn-primary:hover {
     color: #fff;
+    /* Text color */
     background-color: #0067cc;
+    /* Button color on hover */
     border-color: #0067cc;
-  }
-  
+}

@@ -1,12 +1,12 @@
 <div class="container">
-  <h1>Task Manager</h1>
-  <app-tab [activeTab]="activeTab" (tabChange)="onTabChange($event)"></app-tab>
-  <div class="tab-content">
-    <div class="add-task" *ngIf="activeTab === 'Add Task'">
-      <app-task-form (addTask)="addTaskHandler($event)"></app-task-form>
+    <h1>Task Manager Website</h1>
+    <app-tab [activeTab]="activeTab" (tabChange)="onTabChange($event)"></app-tab>
+    <div class="tab-content">
+        <div class="add-task" *ngIf="activeTab === 'Add Task'">
+            <app-task-form (addTask)="addTaskHandler($event)"></app-task-form>
+        </div>
+        <div class="view-tasks" *ngIf="activeTab === 'View Tasks'">
+            <app-task-list [tasks]="tasks"></app-task-list>
+        </div>
     </div>
-    <div class="view-tasks" *ngIf="activeTab === 'View Tasks'">
-      <app-task-list [tasks]="tasks"></app-task-list>
-    </div>
-  </div>
 </div>

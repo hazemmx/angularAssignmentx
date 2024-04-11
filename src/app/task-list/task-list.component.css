@@ -2,92 +2,129 @@
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .task-list li {
+    color: #555;
+    /* Text color */
+}
+
+.task-list li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .task-list li.completed {
-    background-color: #eee;
+    border-bottom: 1px solid #555;
+    /* Darker border */
+}
+
+.task-list li.completed {
+    background-color: #fff;
+    /* Darker background */
     text-decoration: line-through;
-  }
-  
-  .task-list li input[type="checkbox"] {
+}
+
+.task-list li input[type="checkbox"] {
     margin-right: 10px;
-  }
-  
-  .task-list li button {
+}
+
+.task-list li button {
     border: none;
-    padding: 5px 10px;
-    background-color: #f0f0f0;
+    padding: 8px 15px;
+    justify-content: space-between;
+    /* More circular button padding */
+    background-color: #444;
+    /* Darker button color */
     cursor: pointer;
     margin-left: 10px;
-  }
-  
-  .task-list li button:hover {
-    background-color: #ddd;
-  }
+    border-radius: 15px;
+    /* More circular button */
+    color: #fff;
+    /* Text color */
+}
+
+.task-list li button:hover {
+    background-color: #666;
+    /* Darker button color on hover */
+}
 
 .modal {
-  display: none; /* Hide the modal by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  z-index: 1000; /* Ensure modal is on top of other elements */
+    display: none;
+    /* Hide the modal by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Darker semi-transparent background */
+    z-index: 1000;
+    /* Ensure modal is on top of other elements */
 }
 
 .modal-content {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow effect */
-  width: 400px; /* Set the width of the modal */
-  margin: 100px auto; /* Center the modal vertically and horizontally */
-  padding: 20px;
+    background-color: #333;
+    /* Darker modal background */
+    border-radius: 8px;
+    /* More circular modal corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add shadow effect */
+    width: 400px;
+    /* Set the width of the modal */
+    margin: 100px auto;
+    /* Center the modal vertically and horizontally */
+    padding: 20px;
+    color: #fff;
+    /* Text color */
 }
 
 .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 20px;
-  color: #666;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    /* Larger close button font size */
+    color: #aaa;
+    /* Lighter close button color */
 }
 
-
 form label {
-  display: block;
-  margin-bottom: 5px;
+    display: block;
+    margin-bottom: 5px;
+    color: #aaa;
+    /* Lighter label color */
 }
 
 form input[type="text"],
 form input[type="date"],
 form textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-sizing: border-box; /* Ensure padding is included in width */
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    /* Darker border */
+    border-radius: 5px;
+    /* More circular input fields */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    background-color: #444;
+    /* Darker input field background */
+    color: #fff;
+    /* Text color */
 }
 
 form button[type="submit"] {
-  background-color: #007bff; /* Button color */
-  color: #fff; /* Text color */
-  border: none;
-  border-radius: 3px;
-  padding: 10px 15px;
-  cursor: pointer;
+    background-color: #777;
+    /* Button color */
+    color: #fff;
+    /* Text color */
+    border: none;
+    border-radius: 8px;
+    /* More circular button */
+    padding: 12px 18px;
+    /* More circular button padding */
+    cursor: pointer;
 }
 
 form button[type="submit"]:hover {
-  background-color: #0056b3; /* Button color on hover */
+    background-color: #666;
+    /* Button color on hover */
 }
